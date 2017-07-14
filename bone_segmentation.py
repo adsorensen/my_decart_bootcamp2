@@ -1,4 +1,3 @@
-import girder_client
 import numpy as np
 import nibabel
 import matplotlib.pyplot as plt
