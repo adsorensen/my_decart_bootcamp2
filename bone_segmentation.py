@@ -24,7 +24,7 @@ img = nib_img.get_data()
 img.shape, img.dtype, type(img)
 #print(img)
 binary_img = img > args.threshold
-closed_img = morphology.binary_closing(binary_img, selem=morphology.ball(radius=args.closing-radius))
+closed_img = morphology.binary_closing(binary_img, selem=morphology.ball(radius=args.closing_radius))
 out_img = nibabel.Nifti1Image(closed_img.astype(np.uint8), nib_img.affine)
 #out_img.to_filename('./segmented_bones.nii.gz')
 out_img.to_filename(args.output)
