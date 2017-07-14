@@ -11,8 +11,6 @@ parser.add_argument('--test', help='The path to the test image.', required=True)
 parser.add_argument('--truth', help='The path to the ground truth image.', required=True)
 args = parser.parse_args()
 
-print(json.dumps(compare_images(args.test, args.truth)))
-
 
 test_nib_img = nibabel.load(args.test)
 truth_nib_img = nibabel.load(args.truth)
@@ -26,4 +24,5 @@ intersection = np.logical_and(test_img, truth_img)
 union = np.logical_or(test_img, truth_img)
 jaccard = intersection.sum() / float(union.sum())
 
-return {'Jaccard': jaccard}
+#return {'Jaccard': jaccard}
+print(json.dumps({'Jaccard': jaccard}))
